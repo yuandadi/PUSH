@@ -1,0 +1,202 @@
+//=====================================
+//<PUBG归来> 交流群：707611308  作者QQ：3547618 白嫖勿扰！！！
+//IL内核驱动开发学习群：756373812 （赞助内部群）
+//游戏窗口句柄：4064974
+//游戏进程句柄：3728
+//游戏模块地址：140698411139072
+//当前已经在台式电脑运行:2024年11月13日10时20分7秒  
+//当前版本,32.2.1.77
+//=====================================
+	constexpr uint64_t XenuineDecrypt = 0xE4E2028; 
+	constexpr uint64_t UWorld = 0xFE6CD68; 
+	constexpr uint64_t GNames = 0x100CBE88; 
+	constexpr uint64_t GNamesPtr = 0x8; 
+	constexpr uint64_t ChunkSize = 0x400C; 
+	constexpr uint64_t GObjects = 0xFE2B2F8; 
+	constexpr uint64_t PlayerController = 0x30;
+	constexpr uint64_t LocalPlayer = 0x60;
+	constexpr uint64_t GameInstance = 0x160;
+	constexpr uint64_t GameState = 0x110; 
+	constexpr uint64_t CurrentLevel = 0x150;
+	constexpr uint64_t Actors = 0x208;
+	constexpr uint64_t ActorsForGC = 200; //=============
+	constexpr uint64_t PlayerState = 0x418; 
+	constexpr uint64_t AcknowledgedPawn = 0x4A0;
+	constexpr uint64_t PlayerCameraManager = 0x4C8; 
+
+	constexpr uint64_t ObjID = 0x14; 
+	constexpr uint64_t DecryptNameIndexXorKey1 = 0x75BE103E; 
+	constexpr uint64_t DecryptNameIndexRor = 0xA; //=============
+	constexpr uint64_t DecryptNameIndexRval = 0xA; 
+	constexpr uint64_t DecryptNameIndexSval = 0x10; 
+	constexpr uint64_t DecryptNameIndexXorKey2 = 0x5608C67A;
+
+	constexpr uint64_t ViewTarget = 2624; 
+	constexpr uint64_t CameraCacheLocation = 5596; 
+	constexpr uint64_t CameraCacheRotation = 4176; 
+	constexpr uint64_t CameraCacheFOV = 5592; 
+	constexpr uint64_t LastTeamNum = 6360; 
+	constexpr uint64_t TeamNumber = 1584; 
+
+
+	constexpr uint64_t SpectatedCount = 0x1D68; 
+	constexpr uint64_t Position = 0x320;
+	constexpr uint64_t CharacterState = 0x10C8; 
+	constexpr uint64_t CharacterName = 0x1300; 
+	constexpr uint64_t PlayerStatistics = 0x6DC; 
+	constexpr uint64_t TimeSeconds = 0x9A4; 
+	constexpr uint64_t TimeTillExplosion = 0x7AC; 
+	constexpr uint64_t DamageDealtOnEnemy = 0x6D0; 
+	constexpr uint64_t bAlwaysCreatePhysicsState = 0x480; 
+
+
+	constexpr uint64_t Eyes = 0x74C; 
+
+
+	constexpr uint64_t StaticMesh = 0xAC0; 
+	constexpr uint64_t ComponentToWorld = 0x310; 
+	constexpr uint64_t Mesh = 0x5C0; 
+	constexpr uint64_t FiringAttachPoint = 0x880; 
+	constexpr uint64_t ScopingAttachPoint = 0xCA8; 
+
+
+	constexpr uint64_t PartnerLevel = 0x71E; 
+	constexpr uint64_t SurvivalLevel = 0xB9C; 
+	constexpr uint64_t SurvivalTier = 0xB98; 
+	constexpr uint64_t PubgIdData = 0x71E; 
+
+
+	constexpr uint64_t SafetyZonePosition = 0x584; 
+	constexpr uint64_t SafetyZoneRadius = 0x480; 
+	constexpr uint64_t BlueZonePosition = 0x5BC; 
+	constexpr uint64_t BlueZoneRadius = 0x59C; 
+	constexpr uint64_t NumAliveTeams = 0x678; 
+	constexpr uint64_t HeaFlag = 0x198; 
+	constexpr uint64_t Health1 = 0xA00; 
+	constexpr uint64_t Health3 = 0x97C; 
+	constexpr uint64_t Health4 = 0x968; 
+	constexpr uint64_t Health5 = 0x978;
+	constexpr uint64_t Health6 = 0x960; 
+	constexpr uint64_t Health_keys0 = 3469190559; 
+	constexpr uint64_t Health_keys1 = 2607002174; 
+	constexpr uint64_t Health_keys2 = 3405208253; 
+	constexpr uint64_t Health_keys3 = 1043875951; 
+	constexpr uint64_t Health_keys4 = 3901824266; 
+	constexpr uint64_t Health_keys5 = 601730332; 
+	constexpr uint64_t Health_keys6 = 155545544; 
+	constexpr uint64_t Health_keys7 = 3174676001; 
+	constexpr uint64_t Health_keys8 = 195918424; 
+	constexpr uint64_t Health_keys9 = 2834251399; 
+	constexpr uint64_t Health_keys10 = 3799329718; 
+	constexpr uint64_t Health_keys11 = 2676677620; 
+	constexpr uint64_t Health_keys12 = 3186162645; 
+	constexpr uint64_t Health_keys13 = 1049849607; 
+	constexpr uint64_t Health_keys14 = 1862901304; 
+	constexpr uint64_t Health_keys15 = 3805752036; 
+
+
+	constexpr uint64_t bIsReloading_CP = 0x800; 
+	constexpr uint64_t bIsScoping_CP = 0xC06; 
+	constexpr uint64_t LeanLeftAlpha_CP = 0xCE4; 
+	constexpr uint64_t LeanRightAlpha_CP = 0xCE8; 
+	constexpr uint64_t CurrentAmmoData = 0xAB8; 
+
+
+	constexpr uint64_t DroppedItem = 0x458;
+	constexpr uint64_t DroppedItemGroup = 0x1A8;
+	constexpr uint64_t ItemPackageItems = 0x590;
+	constexpr uint64_t DroppedItemGroupUItem = 0x850;
+	constexpr uint64_t ItemTable = 0xA8;
+	constexpr uint64_t ItemID = 0x26C;
+	constexpr uint64_t AimOffsets = 0x1B08;
+	constexpr uint64_t WorldToMap = 0x9B4;
+
+
+	constexpr uint64_t RootComponent = 0x158;
+	constexpr uint64_t ComponentLocation = 0x320;
+	constexpr uint64_t InputYawScale = 0x644;
+	constexpr uint64_t bShowMouseCursor = 0x650;
+
+
+	constexpr uint64_t WeaponProcessor = 0xA08;
+	constexpr uint64_t CurrentWeaponIndex = 0x301;
+	constexpr uint64_t EquippedWeapons = 0x1F8;
+	constexpr uint64_t WeaponTrajectoryData = 0x10C8;
+	constexpr uint64_t WeaponAttachmentData = 0x138;
+	constexpr uint64_t TrajectoryConfig = 0x100;
+	constexpr uint64_t TrajectoryGravityZ = 0x10C0;
+	constexpr uint64_t BallisticCurve = 0x28;
+	constexpr uint64_t FloatCurves = 0x30;
+	constexpr uint64_t LastUpdateVelocity = 0x3D0;
+	constexpr uint64_t CharacterMovement = 0x480;
+
+
+	constexpr uint64_t VehicleMovement = 0x470;
+	constexpr uint64_t VehicleRiderComponent = 0x2040;
+	constexpr uint64_t LastVehiclePawn = 0x260;
+	constexpr uint64_t ReplicatedMovement = 0x68;
+	constexpr uint64_t SeatIndex = 0x220;
+
+
+	constexpr uint64_t Wheels = 0x318;
+	constexpr uint64_t WheelLocation = 0xF8;
+	constexpr uint64_t DampingRate = 0x4C;
+	constexpr uint64_t ShapeRadius = 0x40;
+
+
+	constexpr uint64_t AnimScriptInstance = 0xDD8;
+	constexpr uint64_t PreEvalPawnState = 0x6D8;
+	constexpr uint64_t CharacterClanInfo = 0x670;
+	constexpr uint64_t AttachedItems = 0x828;
+	constexpr uint64_t ExplodeState = 0x588;
+	constexpr uint64_t ControlRotation_CP = 0xC90;
+	constexpr uint64_t RecoilADSRotation_CP = 0x90C;
+	constexpr uint64_t AntiCheatCharacterSyncManager = 0x1048;
+	constexpr uint64_t AttachedStaticComponentMap = 0x300;
+	constexpr uint64_t WeaponConfig_WeaponClass = 0x4F0;
+	constexpr uint64_t ElapsedCookingTime = 0xB9C;
+	constexpr uint64_t PlayerInput = 0x540;
+	constexpr uint64_t InputAxisProperties = 0x130;
+	constexpr uint64_t StaticSockets = 0xC0;
+	constexpr uint64_t StaticSocketName = 0x28;
+	constexpr uint64_t StaticRelativeScale = 0x48;
+	constexpr uint64_t StaticRelativeLocation = 0x30;
+	constexpr uint64_t StaticRelativeRotation = 0x3C;
+
+
+	constexpr uint64_t Slot = 0x30;
+	constexpr uint64_t MyHUD = 0x4C0;
+	constexpr uint64_t Mesh3P = 0x7D0;
+	constexpr uint64_t LayoutData = 0x38;
+	constexpr uint64_t Alignment = 0x20;
+	constexpr uint64_t Keys = 0x60;
+	constexpr uint64_t Offsets = 0x0;
+	constexpr uint64_t Visibility = 0xA1;
+	constexpr uint64_t WidgetStateMap = 0x548;
+	constexpr uint64_t TrainingMapGrid = 0x5D8;
+	constexpr uint64_t BlockInputWidgetList = 0x5C0;
+	constexpr uint64_t SelectMinimapSizeIndex = 0x5C0;
+
+
+	constexpr uint64_t Gender = 2712; 
+	constexpr uint64_t Health = 2424; 
+	constexpr uint64_t bEncryptedHealth = 2445; 
+	constexpr uint64_t EncryptedHealthOffset = 2444; 
+	constexpr uint64_t DecryptedHealthOffset = 2440; 
+	constexpr uint64_t PlayerStatusType = 1160; 
+	constexpr uint64_t GroggyHealth = 4288; 
+	constexpr uint64_t AccountId = 1624; 
+	constexpr uint64_t SquadMemberIndex = 2268;
+	constexpr uint64_t PlayerName = 1096; 
+	constexpr uint64_t PlayerArray = 1064; 
+	constexpr uint64_t RecentlyRendered = 3008; 
+
+
+	constexpr uint64_t MouseX = 16700; 
+	constexpr uint64_t MouseY = 16701; 
+
+
+	constexpr uint64_t SPOOFCALL = 0x24E2155;
+	constexpr uint64_t LineTraceSingle = 0xCA2A588;
+	constexpr uint64_t HOOK = 0xF8D6540;
+	constexpr uint64_t HOOK_TWO = 0x43213D;
