@@ -1,202 +1,163 @@
-//=====================================
-//<PUBG归来> 交流群：707611308  作者QQ：3547618 白嫖勿扰！！！
-//IL内核驱动开发学习群：756373812 （赞助内部群）
-//游戏窗口句柄：4064974
-//游戏进程句柄：3728
-//游戏模块地址：140698411139072
-//当前已经在台式电脑运行:2024年11月13日10时20分7秒  
-//当前版本,32.2.1.77
-//=====================================
-	constexpr uint64_t XenuineDecrypt = 0xE4E2028; 
-	constexpr uint64_t UWorld = 0xFE6CD68; 
-	constexpr uint64_t GNames = 0x100CBE88; 
-	constexpr uint64_t GNamesPtr = 0x8; 
-	constexpr uint64_t ChunkSize = 0x400C; 
-	constexpr uint64_t GObjects = 0xFE2B2F8; 
-	constexpr uint64_t PlayerController = 0x30;
-	constexpr uint64_t LocalPlayer = 0x60;
-	constexpr uint64_t GameInstance = 0x160;
-	constexpr uint64_t GameState = 0x110; 
-	constexpr uint64_t CurrentLevel = 0x150;
-	constexpr uint64_t Actors = 0x208;
-	constexpr uint64_t ActorsForGC = 200; //=============
-	constexpr uint64_t PlayerState = 0x418; 
-	constexpr uint64_t AcknowledgedPawn = 0x4A0;
-	constexpr uint64_t PlayerCameraManager = 0x4C8; 
-
-	constexpr uint64_t ObjID = 0x14; 
-	constexpr uint64_t DecryptNameIndexXorKey1 = 0x75BE103E; 
-	constexpr uint64_t DecryptNameIndexRor = 0xA; //=============
-	constexpr uint64_t DecryptNameIndexRval = 0xA; 
-	constexpr uint64_t DecryptNameIndexSval = 0x10; 
-	constexpr uint64_t DecryptNameIndexXorKey2 = 0x5608C67A;
-
-	constexpr uint64_t ViewTarget = 2624; 
-	constexpr uint64_t CameraCacheLocation = 5596; 
-	constexpr uint64_t CameraCacheRotation = 4176; 
-	constexpr uint64_t CameraCacheFOV = 5592; 
-	constexpr uint64_t LastTeamNum = 6360; 
-	constexpr uint64_t TeamNumber = 1584; 
-
-
-	constexpr uint64_t SpectatedCount = 0x1D68; 
-	constexpr uint64_t Position = 0x320;
-	constexpr uint64_t CharacterState = 0x10C8; 
-	constexpr uint64_t CharacterName = 0x1300; 
-	constexpr uint64_t PlayerStatistics = 0x6DC; 
-	constexpr uint64_t TimeSeconds = 0x9A4; 
-	constexpr uint64_t TimeTillExplosion = 0x7AC; 
-	constexpr uint64_t DamageDealtOnEnemy = 0x6D0; 
-	constexpr uint64_t bAlwaysCreatePhysicsState = 0x480; 
-
-
-	constexpr uint64_t Eyes = 0x74C; 
-
-
-	constexpr uint64_t StaticMesh = 0xAC0; 
-	constexpr uint64_t ComponentToWorld = 0x310; 
-	constexpr uint64_t Mesh = 0x5C0; 
-	constexpr uint64_t FiringAttachPoint = 0x880; 
-	constexpr uint64_t ScopingAttachPoint = 0xCA8; 
-
-
-	constexpr uint64_t PartnerLevel = 0x71E; 
-	constexpr uint64_t SurvivalLevel = 0xB9C; 
-	constexpr uint64_t SurvivalTier = 0xB98; 
-	constexpr uint64_t PubgIdData = 0x71E; 
-
-
-	constexpr uint64_t SafetyZonePosition = 0x584; 
-	constexpr uint64_t SafetyZoneRadius = 0x480; 
-	constexpr uint64_t BlueZonePosition = 0x5BC; 
-	constexpr uint64_t BlueZoneRadius = 0x59C; 
-	constexpr uint64_t NumAliveTeams = 0x678; 
-	constexpr uint64_t HeaFlag = 0x198; 
-	constexpr uint64_t Health1 = 0xA00; 
-	constexpr uint64_t Health3 = 0x97C; 
-	constexpr uint64_t Health4 = 0x968; 
-	constexpr uint64_t Health5 = 0x978;
-	constexpr uint64_t Health6 = 0x960; 
-	constexpr uint64_t Health_keys0 = 3469190559; 
-	constexpr uint64_t Health_keys1 = 2607002174; 
-	constexpr uint64_t Health_keys2 = 3405208253; 
-	constexpr uint64_t Health_keys3 = 1043875951; 
-	constexpr uint64_t Health_keys4 = 3901824266; 
-	constexpr uint64_t Health_keys5 = 601730332; 
-	constexpr uint64_t Health_keys6 = 155545544; 
-	constexpr uint64_t Health_keys7 = 3174676001; 
-	constexpr uint64_t Health_keys8 = 195918424; 
-	constexpr uint64_t Health_keys9 = 2834251399; 
-	constexpr uint64_t Health_keys10 = 3799329718; 
-	constexpr uint64_t Health_keys11 = 2676677620; 
-	constexpr uint64_t Health_keys12 = 3186162645; 
-	constexpr uint64_t Health_keys13 = 1049849607; 
-	constexpr uint64_t Health_keys14 = 1862901304; 
-	constexpr uint64_t Health_keys15 = 3805752036; 
-
-
-	constexpr uint64_t bIsReloading_CP = 0x800; 
-	constexpr uint64_t bIsScoping_CP = 0xC06; 
-	constexpr uint64_t LeanLeftAlpha_CP = 0xCE4; 
-	constexpr uint64_t LeanRightAlpha_CP = 0xCE8; 
-	constexpr uint64_t CurrentAmmoData = 0xAB8; 
-
-
-	constexpr uint64_t DroppedItem = 0x458;
-	constexpr uint64_t DroppedItemGroup = 0x1A8;
-	constexpr uint64_t ItemPackageItems = 0x590;
-	constexpr uint64_t DroppedItemGroupUItem = 0x850;
-	constexpr uint64_t ItemTable = 0xA8;
-	constexpr uint64_t ItemID = 0x26C;
-	constexpr uint64_t AimOffsets = 0x1B08;
-	constexpr uint64_t WorldToMap = 0x9B4;
-
-
-	constexpr uint64_t RootComponent = 0x158;
-	constexpr uint64_t ComponentLocation = 0x320;
-	constexpr uint64_t InputYawScale = 0x644;
-	constexpr uint64_t bShowMouseCursor = 0x650;
-
-
-	constexpr uint64_t WeaponProcessor = 0xA08;
-	constexpr uint64_t CurrentWeaponIndex = 0x301;
-	constexpr uint64_t EquippedWeapons = 0x1F8;
-	constexpr uint64_t WeaponTrajectoryData = 0x10C8;
-	constexpr uint64_t WeaponAttachmentData = 0x138;
-	constexpr uint64_t TrajectoryConfig = 0x100;
-	constexpr uint64_t TrajectoryGravityZ = 0x10C0;
-	constexpr uint64_t BallisticCurve = 0x28;
-	constexpr uint64_t FloatCurves = 0x30;
-	constexpr uint64_t LastUpdateVelocity = 0x3D0;
-	constexpr uint64_t CharacterMovement = 0x480;
-
-
-	constexpr uint64_t VehicleMovement = 0x470;
-	constexpr uint64_t VehicleRiderComponent = 0x2040;
-	constexpr uint64_t LastVehiclePawn = 0x260;
-	constexpr uint64_t ReplicatedMovement = 0x68;
-	constexpr uint64_t SeatIndex = 0x220;
-
-
-	constexpr uint64_t Wheels = 0x318;
-	constexpr uint64_t WheelLocation = 0xF8;
-	constexpr uint64_t DampingRate = 0x4C;
-	constexpr uint64_t ShapeRadius = 0x40;
-
-
-	constexpr uint64_t AnimScriptInstance = 0xDD8;
-	constexpr uint64_t PreEvalPawnState = 0x6D8;
-	constexpr uint64_t CharacterClanInfo = 0x670;
-	constexpr uint64_t AttachedItems = 0x828;
-	constexpr uint64_t ExplodeState = 0x588;
-	constexpr uint64_t ControlRotation_CP = 0xC90;
-	constexpr uint64_t RecoilADSRotation_CP = 0x90C;
-	constexpr uint64_t AntiCheatCharacterSyncManager = 0x1048;
-	constexpr uint64_t AttachedStaticComponentMap = 0x300;
-	constexpr uint64_t WeaponConfig_WeaponClass = 0x4F0;
-	constexpr uint64_t ElapsedCookingTime = 0xB9C;
-	constexpr uint64_t PlayerInput = 0x540;
-	constexpr uint64_t InputAxisProperties = 0x130;
-	constexpr uint64_t StaticSockets = 0xC0;
-	constexpr uint64_t StaticSocketName = 0x28;
-	constexpr uint64_t StaticRelativeScale = 0x48;
-	constexpr uint64_t StaticRelativeLocation = 0x30;
-	constexpr uint64_t StaticRelativeRotation = 0x3C;
-
-
-	constexpr uint64_t Slot = 0x30;
-	constexpr uint64_t MyHUD = 0x4C0;
-	constexpr uint64_t Mesh3P = 0x7D0;
-	constexpr uint64_t LayoutData = 0x38;
-	constexpr uint64_t Alignment = 0x20;
-	constexpr uint64_t Keys = 0x60;
-	constexpr uint64_t Offsets = 0x0;
-	constexpr uint64_t Visibility = 0xA1;
-	constexpr uint64_t WidgetStateMap = 0x548;
-	constexpr uint64_t TrainingMapGrid = 0x5D8;
-	constexpr uint64_t BlockInputWidgetList = 0x5C0;
-	constexpr uint64_t SelectMinimapSizeIndex = 0x5C0;
-
-
-	constexpr uint64_t Gender = 2712; 
-	constexpr uint64_t Health = 2424; 
-	constexpr uint64_t bEncryptedHealth = 2445; 
-	constexpr uint64_t EncryptedHealthOffset = 2444; 
-	constexpr uint64_t DecryptedHealthOffset = 2440; 
-	constexpr uint64_t PlayerStatusType = 1160; 
-	constexpr uint64_t GroggyHealth = 4288; 
-	constexpr uint64_t AccountId = 1624; 
-	constexpr uint64_t SquadMemberIndex = 2268;
-	constexpr uint64_t PlayerName = 1096; 
-	constexpr uint64_t PlayerArray = 1064; 
-	constexpr uint64_t RecentlyRendered = 3008; 
-
-
-	constexpr uint64_t MouseX = 16700; 
-	constexpr uint64_t MouseY = 16701; 
-
-
-	constexpr uint64_t SPOOFCALL = 0x24E2155;
-	constexpr uint64_t LineTraceSingle = 0xCA2A588;
-	constexpr uint64_t HOOK = 0xF8D6540;
-	constexpr uint64_t HOOK_TWO = 0x43213D;
+{
+  "AccountId": "0x630",
+  "AcknowledgedPawn": "0x4A0",
+  "Actors": "0x208",
+  "ActorsForGC": "0x70",
+  "AimOffsets": "0x1B08",
+  "Alignment": "0x20",
+  "AnimScriptInstance": "0xDD8",
+  "AntiCheatCharacterSyncManager": "0x1048",
+  "AttachedItems": "0x828",
+  "AttachedStaticComponentMap": "0x300",
+  "BallisticCurve": "0x28",
+  "BlockInputWidgetList": "0x5C0",
+  "BlueZonePosition": "0x5BC",
+  "BlueZoneRadius": "0x59C",
+  "CameraCacheFOV": "0xA24",
+  "CameraCacheLocation": "0xFB4",
+  "CameraCacheRotation": "0xFC8",
+  "CharacterClanInfo": "0x670",
+  "CharacterMovement": "0x480",
+  "CharacterName": "0x1300",
+  "CharacterState": "0x10C8",
+  "ChunkSize": "0x400C",
+  "ComponentLocation": "0x320",
+  "ComponentToWorld": "0x310",
+  "ControlRotation_CP": "0xC90",
+  "CurrentAmmoData": "0xAB8",
+  "CurrentLevel": "0x150",
+  "CurrentWeaponIndex": "0x301",
+  "DamageDealtOnEnemy": "0x6D0",
+  "DampingRate": "0x4C",
+  "DecryptNameIndexRor": "0x0",
+  "DecryptNameIndexRval": "0xA",
+  "DecryptNameIndexSval": "0x10",
+  "DecryptNameIndexXorKey1": "0x75BE103E",
+  "DecryptNameIndexXorKey2": "0x5608C67A",
+  "DecryptedHealthOffset": "0x978",
+  "DroppedItem": "0x458",
+  "DroppedItemGroup": "0x1A8",
+  "DroppedItemGroupUItem": "0x850",
+  "ElapsedCookingTime": "0xB9C",
+  "EncryptedHealthOffset": "0x97C",
+  "EquippedWeapons": "0x1F8",
+  "ExplodeState": "0x588",
+  "Eyes": "0x74C",
+  "FiringAttachPoint": "0x880",
+  "FloatCurves": "0x30",
+  "GNames": "0x100CBE88",
+  "GNamesAdd": "0x8",
+  "GNamesPtr": "0x8",
+  "GObjects": "0xFF93D00",
+  "GameInstance": "0x160",
+  "GameState": "0x110",
+  "Gender": "0xAA8",
+  "GroggyHealth": "0x1070",
+  "HOOK": "0xF8D6540",
+  "HOOK_TWO": "0x43213D",
+  "HeaFlag": "0x198",
+  "Health": "0x968",
+  "Health1": "0xA00",
+  "Health2": "0x97D",
+  "Health3": "0x97C",
+  "Health4": "0x968",
+  "Health5": "0x978",
+  "Health6": "0x960",
+  "Health_keys0": "0xCEC7A59F",
+  "Health_keys1": "0x9B63B23E",
+  "Health_keys10": "0xE2752BB6",
+  "Health_keys11": "0x9F8ADBF4",
+  "Health_keys12": "0xBDE8FBD5",
+  "Health_keys13": "0x3E936F07",
+  "Health_keys14": "0x6F099E38",
+  "Health_keys15": "0xE2D72AE4",
+  "Health_keys2": "0xCAF75ABD",
+  "Health_keys3": "0x3E38486F",
+  "Health_keys4": "0xE8911D0A",
+  "Health_keys5": "0x23DDAD1C",
+  "Health_keys6": "0x9456FC8",
+  "Health_keys7": "0xBD39B621",
+  "Health_keys8": "0xBAD7A58",
+  "Health_keys9": "0xA8EF3E87",
+  "InputAxisProperties": "0x130",
+  "InputYawScale": "0x664",
+  "ItemID": "0x26C",
+  "ItemPackageItems": "0x590",
+  "ItemTable": "0xA8",
+  "Keys": "0x60",
+  "LastTeamNum": "0x2BF8",
+  "LastUpdateVelocity": "0x3D0",
+  "LastVehiclePawn": "0x260",
+  "LayoutData": "0x38",
+  "LeanLeftAlpha_CP": "0xCE4",
+  "LeanRightAlpha_CP": "0xCE8",
+  "LineTraceSingle": "0xCA2A588",
+  "LocalPlayer": "0x60",
+  "MapGrid_Map": "0x4A0",
+  "Mesh": "0x5C0",
+  "Mesh3P": "0x7D0",
+  "MouseX": "0x413C",
+  "MouseY": "0x413D",
+  "MyHUD": "0x4C0",
+  "NumAliveTeams": "0x678",
+  "ObjID": "0x14",
+  "Offsets": "0x0",
+  "PartnerLevel": "0x71E",
+  "PlayerArray": "0x410",
+  "PlayerCameraManager": "0x4C8",
+  "PlayerController": "0x30",
+  "PlayerInput": "0x540",
+  "PlayerName": "0x400",
+  "PlayerState": "0x418",
+  "PlayerStatistics": "0x6DC",
+  "PlayerStatusType": "0x460",
+  "PreEvalPawnState": "0x6D8",
+  "PubgIdData": "0x71E",
+  "RecoilADSRotation_CP": "0x90C",
+  "ReplicatedMovement": "0x68",
+  "RootComponent": "0x158",
+  "SPOOFCALL": "0x24E2155",
+  "SafetyZonePosition": "0x584",
+  "SafetyZoneRadius": "0x480",
+  "ScopingAttachPoint": "0xCA8",
+  "SeatIndex": "0x220",
+  "SelectMinimapSizeIndex": "0x5C0",
+  "ShapeRadius": "0x40",
+  "Slot": "0x30",
+  "SpectatedCount": "0x1D68",
+  "SquadMemberIndex": "0x6F4",
+  "StaticMesh": "0xAC0",
+  "StaticRelativeLocation": "0x30",
+  "StaticRelativeRotation": "0x3C",
+  "StaticRelativeScale": "0x48",
+  "StaticSocketName": "0x28",
+  "StaticSockets": "0xC0",
+  "SurvivalLevel": "0xB9C",
+  "SurvivalTier": "0xB98",
+  "TeamNumber": "0x640",
+  "TimeSeconds": "0x9A4",
+  "TimeTillExplosion": "0x7AC",
+  "TrainingMapGrid": "0x5D8",
+  "TrajectoryConfig": "0x100",
+  "TrajectoryGravityZ": "0x10C0",
+  "UWorld": "0xFE6CD68",
+  "VehicleMovement": "0x470",
+  "VehicleRiderComponent": "0x2040",
+  "ViewTarget": "0x1010",
+  "Visibility": "0xA1",
+  "WeaponAttachmentData": "0x138",
+  "WeaponConfig_WeaponClass": "0x4F0",
+  "WeaponProcessor": "0xA08",
+  "WeaponTrajectoryData": "0x10C8",
+  "WheelLocation": "0xF8",
+  "Wheels": "0x318",
+  "WidgetStateMap": "0x548",
+  "WorldToMap": "0x9B4",
+  "XenuineDecrypt": "0xE4E2028",
+  "bAlwaysCreatePhysicsState": "0x480",
+  "bEncryptedHealth": "0x97D",
+  "bIsReloading_CP": "0x800",
+  "bIsScoping_CP": "0xC06",
+  "bShowMouseCursor": "0x650",
+  "offset_SpoolBack": "0xDB96E3"
+}
